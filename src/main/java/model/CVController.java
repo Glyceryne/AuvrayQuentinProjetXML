@@ -17,7 +17,7 @@ import java.util.List;
 public class CVController {
     private CVList cvList;
 
-    public CVController() {
+    static {
         CVList cvList = new CVList();
         CV cv = new CV();
         cv.setPrenom("quentin");
