@@ -15,10 +15,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/cv")
 public class CVController {
-    private CVList cvList;
+    private static CVList cvList = new CVList();
 
     static {
-        CVList cvList = new CVList();
+        cvList = new CVList();
         CV cv = new CV();
         cv.setPrenom("quentin");
         cv.setNom("auvray");
@@ -29,14 +29,19 @@ public class CVController {
 
     @RequestMapping(value="{nom}", method = RequestMethod.GET)
     public @ResponseBody
-    CV getResumeInXML(@PathVariable String nom) {
+    CV getCVInXML(@PathVariable String nom) {
 
         return new CV();
     }
 
+    @RequestMapping(value="{cv}", method = RequestMethod.PUT)
+    public @ResponseBody void putCVInXML(@PathVariable CV cv) {
+        cvList.add(cv);
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    CVList getResumesInXML() {
+    CVList getCVsInXML() {
         return cvList;
     }
 }
