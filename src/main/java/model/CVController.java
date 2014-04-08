@@ -22,7 +22,9 @@ public class CVController {
         CV cv = new CV();
         cv.setPrenom("quentin");
         cv.setNom("auvray");
-        cvList.add(cv);
+        List<CV> list = new ArrayList<CV>();
+        list.add(cv);
+        cvList.setList(list);
     }
 
     @RequestMapping(value="{nom}", method = RequestMethod.GET)
