@@ -15,21 +15,26 @@ import java.util.List;
 @Controller
 @RequestMapping("/cv")
 public class CVController {
+    private CVList cvList;
+
+    public CVController() {
+        CVList cvList = new CVList();
+        CV cv = new CV();
+        cv.setPrenom("quentin");
+        cv.setNom("auvray");
+        cvList.add(cv);
+    }
 
     @RequestMapping(value="{nom}", method = RequestMethod.GET)
     public @ResponseBody
     CV getResumeInXML(@PathVariable String nom) {
-        CV cv = new CV();
-        cv.setNom(nom);
-        cv.setPrenom("quentin");
-        return cv;
+
+        return new CV();
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     CVList getResumesInXML() {
-        List l = new ArrayList();
-        CVList cvList = new CVList(l);
         return cvList;
     }
 }
