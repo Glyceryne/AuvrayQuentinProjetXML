@@ -2,6 +2,7 @@ package model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,27 +10,30 @@ import java.util.List;
  */
 @XmlRootElement(name = "cvs")
 public class CVList {
-    private List<CV> list;
+    private int nbCV;
+    private List<CV> listCV;
 
     public CVList() {
-
+        nbCV = 1;
+        listCV = new ArrayList<CV>();
     }
 
-    public CVList(List<CV> l) {
-        this.list = l;
+    public List<CV> getListCV() {
+        return listCV;
     }
 
-    public List<CV> getList() {
-        return list;
+    public void addCV(CV cv) {
+        cv.setId(nbCV);
+        nbCV++;
+        this.listCV.add(cv);
     }
 
-    @XmlElement
-    public void setList(List<CV> l) {
-        this.list = l;
+    public CV getCVById(int id) {
+        for (CV cv : listCV) {
+            if (cv.getId() == id) {
+                return cv;
+            }
+        }
+        return new CV();
     }
-
-    public void add(CV r) {
-        this.list.add(r);
-    }
-
 }

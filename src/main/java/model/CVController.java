@@ -22,26 +22,22 @@ public class CVController {
         CV cv = new CV();
         cv.setPrenom("quentin");
         cv.setNom("auvray");
-        List<CV> list = new ArrayList<CV>();
-        list.add(cv);
-        cvList.setList(list);
+        cv.setAge(21);
+        cvList.addCV(cv);
     }
 
-    @RequestMapping(value="{nom}", method = RequestMethod.GET)
-    public @ResponseBody
-    CV getCVInXML(@PathVariable String nom) {
-
-        return new CV();
+    @RequestMapping(value="{id}", method = RequestMethod.GET)
+    public @ResponseBody CV getCVInXML(@PathVariable int id) {
+        return cvList.getCVById(id);
     }
 
     @RequestMapping(value="{cv}", method = RequestMethod.PUT)
     public @ResponseBody void putCVInXML(@PathVariable CV cv) {
-        cvList.add(cv);
+        cvList.addCV(cv);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody
-    CVList getCVsInXML() {
+    public @ResponseBody CVList getCVsInXML() {
         return cvList;
     }
 }
