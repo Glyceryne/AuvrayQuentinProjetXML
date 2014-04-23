@@ -34,6 +34,6 @@ public class CVList {
                 return cv;
             }
         }
-        return new CV();
+        return null;
     }
 }

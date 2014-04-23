@@ -20,10 +20,31 @@ public class CVController {
     static {
         cvList = new CVList();
         CV cv = new CV();
-        cv.setPrenom("quentin");
-        cv.setNom("auvray");
+        cv.setPrenom("Quentin");
+        cv.setNom("Auvray");
         cv.setAge(21);
+        cv.setAdresse("1 allée des Prunus");
+        List<String> formations = new ArrayList<String>();
+        formations.add("Licence 3 : Université de Rouen");
+        cv.setFormations(formations);
+        List<String> experiences = new ArrayList<String>();
+        experiences.add("Stage IA-KAR");
+        cv.setExperiences(experiences);
+        List<String> langues = new ArrayList<String>();
+        langues.add("Français");
+        langues.add("Anglais");
+        cv.setLangues(langues);
+        List<String> competences = new ArrayList<String>();
+        competences.add("Java");
+        cv.setCompetences(competences);
+        List<String> interets = new ArrayList<String>();
+        interets.add("Metal Celtique");
+        cv.setInterets(interets);
         cvList.addCV(cv);
+    }
+
+    public CVController() {
+
     }
 
     @RequestMapping(value="{id}", method = RequestMethod.GET)

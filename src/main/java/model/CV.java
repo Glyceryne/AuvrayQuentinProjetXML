@@ -2,6 +2,7 @@ package model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 /**
  * Created by Quentin on 08/04/14.
@@ -14,70 +15,14 @@ public class CV {
     private String prenom;
     private int age;
     private String adresse;
-    private String formation;
-    private String experience;
-    private String langue;
-    private String competence;
-    private String interet;
+    private List<String> formations;
+    private List<String> experiences;
+    private List<String> langues;
+    private List<String> competences;
+    private List<String> interets;
 
     public CV() {
 
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
-    public String getFormation() {
-        return formation;
-    }
-
-    public void setFormation(String formation) {
-        this.formation = formation;
-    }
-
-    public String getExperience() {
-        return experience;
-    }
-
-    public void setExperience(String experience) {
-        this.experience = experience;
-    }
-
-    public String getLangue() {
-        return langue;
-    }
-
-    public void setLangue(String langue) {
-        this.langue = langue;
-    }
-
-    public String getCompetence() {
-        return competence;
-    }
-
-    public void setCompetence(String competence) {
-        this.competence = competence;
-    }
-
-    public String getInteret() {
-        return interet;
-    }
-
-    public void setInteret(String interet) {
-        this.interet = interet;
     }
 
     public int getId() {
@@ -102,6 +47,62 @@ public class CV {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public List<String> getFormations() {
+        return formations;
+    }
+
+    public void setFormations(List<String> formations) {
+        this.formations = formations;
+    }
+
+    public List<String> getExperiences() {
+        return experiences;
+    }
+
+    public void setExperiences(List<String> experiences) {
+        this.experiences = experiences;
+    }
+
+    public List<String> getLangues() {
+        return langues;
+    }
+
+    public void setLangues(List<String> langues) {
+        this.langues = langues;
+    }
+
+    public List<String> getCompetences() {
+        return competences;
+    }
+
+    public void setCompetences(List<String> competences) {
+        this.competences = competences;
+    }
+
+    public List<String> getInterets() {
+        return interets;
+    }
+
+    public void setInterets(List<String> interets) {
+        this.interets = interets;
     }
 
 }
