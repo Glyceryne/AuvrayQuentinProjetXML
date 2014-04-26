@@ -1,7 +1,10 @@
 package model;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,20 +12,44 @@ import java.util.List;
  */
 
 @XmlRootElement(name = "cv")
+@XmlType(propOrder = {"id", "nom", "prenom", "age", "adresse",
+        "formations", "experiences", "langues", "competences", "interets"})
 public class CV {
     private int id;
     private String nom;
     private String prenom;
     private int age;
     private String adresse;
-    private List<String> formations;
-    private List<String> experiences;
-    private List<String> langues;
-    private List<String> competences;
-    private List<String> interets;
+
+    @XmlElementWrapper(name = "formations")
+    @XmlElement(name = "formation")
+    protected List<String> formations;
+
+    @XmlElementWrapper(name = "experiences")
+    @XmlElement(name = "experience")
+    protected List<String> experiences;
+
+    @XmlElementWrapper(name = "langues")
+    @XmlElement(name = "langue")
+    protected List<String> langues;
+
+    @XmlElementWrapper(name = "competences")
+    @XmlElement(name = "competence")
+    protected List<String> competences;
+
+    @XmlElementWrapper(name = "interets")
+    @XmlElement(name = "interet")
+    protected List<String> interets;
 
     public CV() {
-
+        this.nom = "";
+        this.prenom = "";
+        this.adresse = "";
+        this.formations = new ArrayList<String>();
+        this.experiences = new ArrayList<String>();
+        this.langues = new ArrayList<String>();
+        this.competences = new ArrayList<String>();
+        this.interets = new ArrayList<String>();
     }
 
     public int getId() {
@@ -64,45 +91,4 @@ public class CV {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
-
-    public List<String> getFormations() {
-        return formations;
-    }
-
-    public void setFormations(List<String> formations) {
-        this.formations = formations;
-    }
-
-    public List<String> getExperiences() {
-        return experiences;
-    }
-
-    public void setExperiences(List<String> experiences) {
-        this.experiences = experiences;
-    }
-
-    public List<String> getLangues() {
-        return langues;
-    }
-
-    public void setLangues(List<String> langues) {
-        this.langues = langues;
-    }
-
-    public List<String> getCompetences() {
-        return competences;
-    }
-
-    public void setCompetences(List<String> competences) {
-        this.competences = competences;
-    }
-
-    public List<String> getInterets() {
-        return interets;
-    }
-
-    public void setInterets(List<String> interets) {
-        this.interets = interets;
-    }
-
 }

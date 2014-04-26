@@ -11,15 +11,16 @@ import java.util.List;
 @XmlRootElement(name = "cvs")
 public class CVList {
     private int nbCV;
-    private List<CV> listCV;
+
+    @XmlElement(name = "cv")
+    protected List<CV> listCV;
 
     public CVList() {
-        nbCV = 1;
+        nbCV = 0;
         listCV = new ArrayList<CV>();
-    }
-
-    public List<CV> getListCV() {
-        return listCV;
+        CV cv = new CV();
+        cv.setNom("zgvfnbhvn");
+        addCV(cv);
     }
 
     public void addCV(CV cv) {
