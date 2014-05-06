@@ -40,9 +40,10 @@ public class CVController {
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public @ResponseBody int putCVInXML(@RequestBody CV cv) {
+    public @ResponseBody String putCVInXML(@RequestBody CV cv) {
         cvList.addCV(cv);
-        return cv.getId();
+        //return cv.getId();
+        return "CV ajouté";
     }
 
     @RequestMapping(method = RequestMethod.GET)
