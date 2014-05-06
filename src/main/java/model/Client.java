@@ -30,8 +30,7 @@ public class Client {
     private Service service;
     private JAXBContext jc;
     private static final QName qname = new QName("", "");
-    //private static final String url = "http://auvrayquentinprojetxml.glyceryne.cloudbees.net/rest/cv";
-    private static final String url = "http://localhost:8080/AuvrayQuentinProjetXML-1.0-SNAPSHOT/rest/cv";
+    private static final String url = "http://auvrayquentinprojetxml.glyceryne.cloudbees.net/rest/cv";
 
     private JFrame frame;
     private JButton ajouterCV;
